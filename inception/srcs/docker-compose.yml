@@ -1,9 +1,53 @@
 version: "3.9"
+
 services:
-  webserver:
+  db:
+    build: ./requirements/mariadb
+#    image: mariadb:latest
+#    command: '--default-authentication-plugin=mysql_native_password'
+    container_name: db
+    env_file: .env
+    environment:
+      - MYSQL_DATABASE=wordpress
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - docker-network
+  
+  wordpress:
+    depends_on:
+      - db
+    build: ./requirements/wordpress
+    container_name: wordpress
+    env_file: .env
+    environment:
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DB_USER=$MYSQL_USER
+      - WORDPRESS_DB_PASSWORD=$MYSQL_PASSWORD
+      - WORDPRESS_DB_HOST=db:3306
+    volumes:
+      - wordpress:/var/www/wordpress
+    networks:
+      - docker-network
+    restart: unless-stopped
+
+  nginx:
+    depends_on:
+      - wordpress
     build: ./requirements/nginx/
     container_name: nginx
     ports:
       - "443:443"
-  
-    
+    volumes:
+      - wordpress:/var/www/wordpress
+    networks:
+      - docker-network
+    restart: unless-stopped
+      
+volumes:
+  wordpress:
+  dbdata:
+
+networks:
+  docker-network:
+    driver: bridge

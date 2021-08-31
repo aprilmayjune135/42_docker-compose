@@ -3,8 +3,8 @@ RESET = \033[0;0m
 MAGENTA = \033[1;35m\033[47m
 
 PROJECT = inception
-CONTAINERS = nginx
-SERVICES = webserver
+CONTAINERS = nginx db wordpress
+SERVICES = nginx db wordpress
 IMAGES = $(addprefix $(PROJECT)_, $(SERVICES))
 
 all:
@@ -20,10 +20,8 @@ stop:
 	docker stop $(CONTAINERS)
 
 clean:
-	@echo "$(MAGENTA)remove all containers...$(RESET)"
-	docker rm $(CONTAINERS)
-	@echo "$(MAGENTA)remove all images...$(RESET)"
-	docker rmi $(IMAGES)
+	@echo "$(MAGENTA)remove all containers/images/volumes...$(RESET)"
+	docker-compose -f ./srcs/docker-compose.yml down --rmi all --volumes
 
 fclean: clean
 
