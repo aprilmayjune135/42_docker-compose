@@ -23,19 +23,23 @@
 define( 'DB_NAME', 'wordpress' );
 
 /** MySQL database username */
-define( 'DB_USER', 'wpuser' );
+define( 'DB_USER', 'user' );
 
 /** MySQL database password */
 define( 'DB_PASSWORD', 'password' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'locahost' );
+define( 'DB_HOST', 'db:3306' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
 
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
+
+/** The site url. */
+define( 'WP_HOME', 'https://xchen.42.fr' );
+define( 'WP_SITEURL', 'https://xchen.42.fr' );
 
 /**#@+
  * Authentication unique keys and salts.

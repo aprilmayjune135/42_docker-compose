@@ -15,12 +15,12 @@ RUN		apt autoremove
 RUN		apt autoclean
 RUN		apt install mariadb-server -y
 
-
-
 COPY 	./tools/* ./
 RUN 	mv ./my.cnf	/etc/my.cnf
 RUN 	service mysql start
+
 EXPOSE	3306
+
 ENTRYPOINT [ "mysqld", "--user=root", "--init_file=/init_file" ]
 
 

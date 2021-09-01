@@ -22,7 +22,8 @@ RUN 	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/privat
 		chmod 775 /etc/ssl/certs/nginx-selfsigned.crt
 
 # allow Nginx user
-RUN		chown -R www-data:www-data /var/www/html
+RUN 	chmod -R 755 /var/www/html/*
+RUN		chown -R www-data:www-data /var/www/html/*
 
 # open port
 EXPOSE 443
@@ -30,3 +31,9 @@ EXPOSE 443
 # to run nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
 
+
+# just testing
+#RUN 	mkdir -p /var/www/html/testing
+#COPY 	/tools/index.php /var/www/html/testing/
+#COPY 	/tools/info.php /var/www/html/testing/
+#COPY 	/tools/info.php /var/www/html/
