@@ -3,8 +3,6 @@ version: "3.9"
 services:
   db:
     build: ./requirements/mariadb
-#    image: mariadb:latest
-#    command: '--default-authentication-plugin=mysql_native_password'
     container_name: db
     env_file: .env
     environment:
@@ -35,6 +33,7 @@ services:
     depends_on:
       - wordpress
     build: ./requirements/nginx/
+    env_file: .env
     container_name: nginx
     ports:
       - "443:443"

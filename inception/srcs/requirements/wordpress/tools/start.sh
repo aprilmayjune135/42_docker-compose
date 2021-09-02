@@ -1,5 +1,5 @@
 #!bin/bash
 php-fpm7.3 -R
-# Note:
-#	- https://manpages.debian.org/testing/php7.3-fpm/php-fpm7.3.8
-#	- -R Allow pool to run as root (disabled by default)
+
+# Reference: https://manpages.debian.org/testing/php7.3-fpm/php-fpm7.3.8
+#	-R Allow pool to run as root (disabled by default)

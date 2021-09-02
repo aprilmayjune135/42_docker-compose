@@ -15,24 +15,19 @@ RUN		apt autoremove
 RUN		apt autoclean
 RUN		apt install mariadb-server -y
 
+# configure 
 COPY 	./tools/* ./
-RUN 	mv ./my.cnf	/etc/my.cnf
-RUN 	service mysql start
+COPY 	/conf/my.cnf /etc/my.cnf
+COPY 	/conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 EXPOSE	3306
-
-ENTRYPOINT [ "mysqld", "--user=root", "--init_file=/init_file" ]
-
-
-
-# setup mysql database for wordpress
-#COPY 	./tools/start.sh ./
-#RUN 	chmod 775 ./start.sh
-#RUN 	bash ./start.sh
-#CMD	bash ./setup.sh
-#RUN	mysql < /create_tables.sql
-#RUN 	chown -R mysql:mysql /var/lib/mysql
+RUN 	chmod -R 755 /setup_mysql.sh
+RUN 	chmod -R 755 /start.sh
+RUN 	chown -R mysql:mysql /var/lib/mysql
+#RUN 	/start.sh
+ENTRYPOINT [ "sh", "-c", "/start.sh" ]
+#ENTRYPOINT ["mysqld"]
+#ENTRYPOINT [ "sh", "-c", "/start.sh]
 #RUN 	service mysql start
-#RUN		echo "CREATE DATABASE wordpress;" | mysql -u root
-#RUN		echo "GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost' IDENTIFIED BY 'password';" | mysql -u root
-#RUN		echo "FLUSH PRIVILEGES;" | mysql -u root
+#ENTRYPOINT [ "mysqld", "--user=root", "--init_file=/init_file"]
+
