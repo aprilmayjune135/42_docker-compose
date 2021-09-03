@@ -1,9 +1,18 @@
 #!bin/bash
 
-# setup database and users
+# service has to be started in order to process the setup
 service mysql start
+
+# create the database
 mysql -u root -e "CREATE DATABASE ${MYSQL_DATABASE};"
-mysql -u root -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED Y '${MYSQL_PASSWORD}';"
-mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}';"
-mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';"
+
+# create a user as admin
+mysql -u root -e "CREATE USER '${MYSQL_ADMIN}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD_ADMIN}';"
+mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_ADMIN}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD_ADMIN}';"
+
+# create a second user
+mysql -u root -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD_USER}';"
+mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD_USER}';"
+
+# final step
 mysql -u root -e "FLUSH PRIVILEGES;"

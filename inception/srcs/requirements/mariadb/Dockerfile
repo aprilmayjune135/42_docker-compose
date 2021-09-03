@@ -24,10 +24,4 @@ EXPOSE	3306
 RUN 	chmod -R 755 /setup_mysql.sh
 RUN 	chmod -R 755 /start.sh
 RUN 	chown -R mysql:mysql /var/lib/mysql
-#RUN 	/start.sh
 ENTRYPOINT [ "sh", "-c", "/start.sh" ]
-#ENTRYPOINT ["mysqld"]
-#ENTRYPOINT [ "sh", "-c", "/start.sh]
-#RUN 	service mysql start
-#ENTRYPOINT [ "mysqld", "--user=root", "--init_file=/init_file"]
-

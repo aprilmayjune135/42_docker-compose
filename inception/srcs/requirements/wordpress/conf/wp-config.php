@@ -20,16 +20,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress' );
+define( 'DB_NAME', getenv('WORDPRESS_DB_NAME') );
 
 /** MySQL database username */
-define( 'DB_USER', 'xchen' );
+define( 'DB_USER', getenv('WORDPRESS_DB_ADMIN') );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '12345678' );
+define( 'DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD_ADMIN') );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'db' );
+define( 'DB_HOST', getenv('WORDPRESS_DB_HOST') );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -39,10 +39,6 @@ define( 'DB_COLLATE', '' );
 
 /** from xchen */
 define('WP_ALLOW_REPAIR', true);
-
-/** The site url. */
-#define( 'WP_HOME', 'https://xchen.42.fr' );
-#define( 'WP_SITEURL', 'https://xchen.42.fr' );
 
 /**#@+
  * Authentication unique keys and salts.
@@ -86,11 +82,12 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
+/** to create use at initiation */
+define( 'PLUGINDIR', dirname(__FILE__) . '/wp-content/mu-plugins' );
 
 /* That's all, stop editing! Happy publishing. */
 
