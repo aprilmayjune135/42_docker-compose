@@ -20,14 +20,14 @@ COPY	./tools/*	./
 RUN 	mkdir -p /var/www/html
 RUN		wget https://wordpress.org/latest.tar.gz; \
 		tar xvf latest.tar.gz; \
-		rm latest.tar.gz; \
-	 	mv wordpress/* /var/www/html/
-COPY	/conf/wp-config.php /var/www/html/wp-config.php
+		rm latest.tar.gz
+COPY	/conf/wp-config.php wordpress/wp-config.php
+RUN	 	cp -a wordpress/. /var/www/html/
 
-# TODO: create wp user
-RUN 	mkdir /var/www/html/wp-content/mu-plugins
-#RUN		cp /create-admin-user.php /var/www/html/wp-content/mu-plugins/; \
-#		chmod -R 755 /var/www/html/wp-content/mu-plugins/create-admin-user.php
+# install wp-cli to install webpage in start.sh
+RUN		wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar; \
+		chmod +x wp-cli.phar; \
+		mv wp-cli.phar /usr/local/bin/wp
 
 # set permission
 RUN 	chmod -R 755 /var/www/html; \

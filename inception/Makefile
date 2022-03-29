@@ -13,7 +13,7 @@ all:
 
 start:
 	@echo "$(MAGENTA)start all containers...$(RESET)"
-	docker stop $(CONTAINERS)
+	docker start $(CONTAINERS)
 
 stop:
 	@echo "$(MAGENTA)stop all containers...$(RESET)"

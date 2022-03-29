@@ -1,0 +1,26 @@
+******************************
+**		Progress Note		**
+******************************
+2022-03-28 (Mon):
+	- recap
+	- understand progress on wordpress
+	- investigate volumes
+		(Your volumes will be available in the /home/login/data folder of the
+host machine)
+
+2022-03-29 (Tue):
+	- install wordpress done ^.^
+		has to install after db container is running (in order to connect with sql database)
+
+******************************
+**		NEXT	TO DO		**
+******************************
+	- volume mount to host machine
+
+******************************
+**		GENERAL	TO DO		**
+******************************
+	- virtual machine
+	- Your volumes will be available in the /home/login/data folder of the
+	host machine using Docker. Of course, you have to replace the login
+	with yours.

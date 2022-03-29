@@ -6,6 +6,7 @@ services:
     container_name: db
     env_file: .env
     volumes:
+#       - ${VOLUME_PATH}/db/:/var/lib/mysql/
       - dbdata:/var/lib/mysql
     networks:
       - docker-network
@@ -24,6 +25,7 @@ services:
       - WORDPRESS_DB_PASSWORD_USER=$MYSQL_PASSWORD_USER
       - WORDPRESS_DB_HOST=db:3306
     volumes:
+#       - ${VOLUME_PATH}/wordpress/:/var/www/html/
       - wordpress:/var/www/html
     networks:
       - docker-network
@@ -38,6 +40,7 @@ services:
     ports:
       - "443:443"
     volumes:
+#       - ${VOLUME_PATH}/wordpress/:/var/www/html/
       - wordpress:/var/www/html
     networks:
       - docker-network
