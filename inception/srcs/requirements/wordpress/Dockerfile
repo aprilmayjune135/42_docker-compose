@@ -15,25 +15,17 @@ RUN		apt install -y php-cli php-fpm php-json php-pdo php-mysql php-zip php-gd  p
 # configure php-fpm to listen to port 9000 (www.conf set listen=9000)
 COPY 	/conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
-# install wordpress
-COPY	./tools/*	./
-RUN 	mkdir -p /var/www/html
-RUN		wget https://wordpress.org/latest.tar.gz; \
-		tar xvf latest.tar.gz; \
-		rm latest.tar.gz
-COPY	/conf/wp-config.php wordpress/wp-config.php
-RUN	 	cp -a wordpress/. /var/www/html/
+# open gate
+EXPOSE	9000
 
 # install wp-cli to install webpage in start.sh
 RUN		wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar; \
 		chmod +x wp-cli.phar; \
 		mv wp-cli.phar /usr/local/bin/wp
 
-# set permission
-RUN 	chmod -R 755 /var/www/html; \
-		chown -R www-data:www-data /var/www/html
-
-EXPOSE	9000
+# prepare necessary files
+COPY	/conf/wp-config.php ./
+COPY	/tools/start.sh	./
 
 # to keep php-fpm in the foreground (php-fpm.conf set daemonize=no)
 COPY 	/conf/php-fpm.conf /etc/php/7.3/fpm/php-fpm.conf

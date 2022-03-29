@@ -23,5 +23,4 @@ COPY 	/conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 EXPOSE	3306
 RUN 	chmod -R 755 /setup_mysql.sh
 RUN 	chmod -R 755 /start.sh
-RUN 	chown -R mysql:mysql /var/lib/mysql
 ENTRYPOINT [ "sh", "-c", "/start.sh" ]

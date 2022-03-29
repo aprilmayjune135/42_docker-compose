@@ -22,8 +22,9 @@ RUN 	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/privat
 		chmod 775 /etc/ssl/certs/nginx-selfsigned.crt
 
 # allow Nginx user
-RUN 	chmod -R 755 /var/www/html/*
-RUN		chown -R www-data:www-data /var/www/html/*
+RUN 	mkdir -p /wordpress
+RUN 	chmod -R 755 /wordpress
+RUN		chown -R www-data:www-data /wordpress
 
 # open port
 EXPOSE 443

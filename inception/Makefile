@@ -22,6 +22,7 @@ stop:
 clean:
 	@echo "$(MAGENTA)remove all containers/images/volumes...$(RESET)"
 	docker-compose -f ./srcs/docker-compose.yml down --rmi all --volumes
+	rm -rf ./srcs/data/db/*
 
 fclean: clean
 

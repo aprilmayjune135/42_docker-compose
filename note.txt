@@ -11,16 +11,18 @@ host machine)
 2022-03-29 (Tue):
 	- install wordpress done ^.^
 		has to install after db container is running (in order to connect with sql database)
+	- volume mount done for wordpress (set ENV variable for HOST_PATH_WORDPRESS)
 
 ******************************
 **		NEXT	TO DO		**
 ******************************
-	- volume mount to host machine
+	- volume mount to host machine - db
+		(currently unable to start mysql (setup_mysql.sh))
 
 ******************************
 **		GENERAL	TO DO		**
 ******************************
-	- virtual machine
+	- set up virtual machine
 	- Your volumes will be available in the /home/login/data folder of the
 	host machine using Docker. Of course, you have to replace the login
 	with yours.
