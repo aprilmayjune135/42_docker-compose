@@ -13,11 +13,14 @@ host machine)
 		has to install after db container is running (in order to connect with sql database)
 	- volume mount done for wordpress (set ENV variable for HOST_PATH_WORDPRESS)
 
+2022-03-30 (Wed):
+	- volume mount fixed for mysqld (use mysql_install_db to initiate database)
+
 ******************************
 **		NEXT	TO DO		**
 ******************************
-	- volume mount to host machine - db
-		(currently unable to start mysql (setup_mysql.sh))
+	- virtual machine
+	- go over subject
 
 ******************************
 **		GENERAL	TO DO		**

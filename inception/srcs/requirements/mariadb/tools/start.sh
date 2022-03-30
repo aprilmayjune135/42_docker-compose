@@ -1,8 +1,13 @@
 #!bin/bash
 
 # set permisison
+chmod -R 755 /var/lib/mysql
 chown -R mysql:mysql /var/lib/mysql
-chmod 755 /var/lib/mysql
+
+# initiating data files for mysql
+if [ ! -d "/var/lib/mysql/mysql" ]; then
+	mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql > /dev/null
+fi
 
 # turn on bash's job control
 set -m
