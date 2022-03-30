@@ -26,6 +26,11 @@ host machine)
 **		GENERAL	TO DO		**
 ******************************
 	- set up virtual machine
-	- Your volumes will be available in the /home/login/data folder of the
+		- download Docker
+		- download Docker-compose
+		- download browser
+		- /etc/hosts add a line "127.0.0.1 xchen.42.fr"
+		- Your volumes will be available in the /home/login/data folder of the
 	host machine using Docker. Of course, you have to replace the login
 	with yours.
+	
