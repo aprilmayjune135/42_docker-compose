@@ -16,6 +16,10 @@ host machine)
 2022-03-30 (Wed):
 	- volume mount fixed for mysqld (use mysql_install_db to initiate database)
 
+2022-04-12 (Tue):
+	- set up VM
+	- Issue: in /home/xchen/data/db unable to change user to mysql
+
 ******************************
 **		NEXT	TO DO		**
 ******************************
@@ -33,4 +37,14 @@ host machine)
 		- Your volumes will be available in the /home/login/data folder of the
 	host machine using Docker. Of course, you have to replace the login
 	with yours.
-	
+	- run in mac:
+		- Make file: make clean rule change rm
+		- .env file:
+HOST_PATH_DB=../data/db/
+HOST_PATH_WORDPRESS=../data/wordpress/
+
+	- run in vm:
+		- Make file: make clean rule change rm
+		- .env:
+HOST_PATH_DB=/home/xchen/data/db/
+HOST_PATH_WORDPRESS=/home/xchen/data/wordpress/

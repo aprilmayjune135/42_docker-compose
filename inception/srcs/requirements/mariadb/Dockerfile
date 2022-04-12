@@ -5,15 +5,15 @@ FROM 	debian:buster
 LABEL 	maintainer = "xchen <xchen@student.codam.nl>"
 
 # check and update OS
-RUN 	apt update; \
-		apt upgrade -y
+RUN 	apt-get update; \
+		apt-get upgrade -y
 
 # install mariadb
-RUN 	apt purge mysql*
-RUN 	apt purge mariadb*
-RUN		apt autoremove
-RUN		apt autoclean
-RUN		apt install mariadb-server -y
+RUN 	apt-get purge mysql* ; \
+		apt-get purge mariadb*
+RUN		apt-get autoremove ; \
+		apt-get autoclean
+RUN		apt-get install mariadb-server -y
 
 # configure 
 COPY 	./tools/* ./

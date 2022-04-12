@@ -5,12 +5,12 @@ FROM 	debian:buster
 LABEL 	maintainer = "xchen <xchen@student.codam.nl>"
 
 # check and update OS
-RUN 	apt update; \
-		apt upgrade -y
+RUN 	apt-get update; \
+		apt-get upgrade -y
 
 # install php
-RUN		apt install -y php-cli php-fpm php-json php-pdo php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear php-bcmath; \
-		apt install -y wget
+RUN		apt-get install -y php-cli php-fpm php-json php-pdo php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear php-bcmath; \
+		apt-get install -y wget
 
 # configure php-fpm to listen to port 9000 (www.conf set listen=9000)
 COPY 	/conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf

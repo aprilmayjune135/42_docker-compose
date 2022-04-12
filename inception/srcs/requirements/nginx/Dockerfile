@@ -5,12 +5,12 @@ FROM 	debian:buster
 LABEL 	maintainer = "xchen <xchen@student.codam.nl>"
 
 # check and update OS
-RUN 	apt update; \
-		apt upgrade -y
+RUN 	apt-get update; \
+		apt-get upgrade -y
 
 # install nginx
-RUN		apt install -y nginx; \
-		apt install -y wget
+RUN		apt-get install -y nginx; \
+		apt-get install -y wget
 
 # configure Nginx to use theh PHP processor
 COPY	/conf/nginx.conf /etc/nginx/sites-available/xchen.42.fr
