@@ -26,7 +26,7 @@ define( 'DB_NAME', getenv('WORDPRESS_DB_NAME') );
 define( 'DB_USER', getenv('WORDPRESS_DB_USER') );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD_USER') );
+define( 'DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD') );
 
 /** MySQL hostname */
 define( 'DB_HOST', getenv('WORDPRESS_DB_HOST') );

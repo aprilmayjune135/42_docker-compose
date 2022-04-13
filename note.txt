@@ -24,6 +24,8 @@ host machine)
 	- Fix db container exited automatically: issue is not the /home/xchen/data/db owner, but /run/mysqld owner
 	- Issue: xchen.42.fr does not show up wordpress website (but only Apache default page) 
 		>> should use https instead of http
+	- Add wordpress admin + user
+	- clean out Environment Variable
 
 ******************************
 **		NEXT	TO DO		**
