@@ -18,7 +18,11 @@ host machine)
 
 2022-04-12 (Tue):
 	- set up VM
-	- Issue: in /home/xchen/data/db unable to change user to mysql
+	- Issue: db container exited automatically: in /home/xchen/data/db unable to change user to mysql
+
+2022-04-13 (Wed):
+	- Fix db container exited automatically: issue is not the /home/xchen/data/db owner, but /run/mysqld owner
+	- Issue: xchen.42.fr does not show up wordpress website (but only Apache default page)
 
 ******************************
 **		NEXT	TO DO		**

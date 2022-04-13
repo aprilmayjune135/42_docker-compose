@@ -3,6 +3,9 @@
 # set permisison
 chmod -R 755 /var/lib/mysql
 chown -R mysql:mysql /var/lib/mysql
+mkdir -p /run/mysqld
+chmod -R 755 /run/mysqld
+chown -R mysql:mysql /run/mysqld
 
 # initiating data files for mysql
 if [ ! -d "/var/lib/mysql/mysql" ]; then
