@@ -22,8 +22,8 @@ stop:
 clean:
 	@echo "$(MAGENTA)remove all containers/images/volumes...$(RESET)"
 	docker-compose -f ./srcs/docker-compose.yml down --rmi all --volumes
-	#sudo rm -rf /home/xchen/data/*
-	rm -rf ./data/db/* ./data/wordpress/*
+	sudo rm -rf /home/xchen/data/*
+	#rm -rf ./data/db/* ./data/wordpress/*
 
 fclean: clean
 
