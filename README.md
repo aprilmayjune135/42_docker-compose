@@ -7,7 +7,7 @@ The docker image of each service is built from scratch. For instance, instead of
 
 This project needs to be done in a Virtual Machine.
 
-![alt text](https://user-images.githubusercontent.com/73280726/164033851-973150a6-0f3d-46fe-ac0f-c964126788bd.png)
+![alt text](https://github.com/aprilmayjune135/images/blob/main/inception.png?raw=true)
 
 
 ## Usage
