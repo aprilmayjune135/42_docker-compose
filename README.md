@@ -1,7 +1,9 @@
 ![alt text](https://user-images.githubusercontent.com/73280726/158613827-8c536687-71fe-4b8f-a59c-0b9eaf3ec5aa.png)
 # Inception
 
-This school project is to use docker-compose to set up a small infrastructure composed of different services (Nginx, Mariadb and WordPress) under specific rules. 
+This school project is to use ```docker-compose``` to set up a small infrastructure composed of different services (```Nginx```, ```Mariadb``` and ```WordPress```) under specific rules. 
+
+The docker image of each service is built from scratch. For instance, instead of pulling ready-made image of ```nginx```, the image uses ```apt-get install nginx``` from ```Debian-Buster```.
 
 This project needs to be done in a Virtual Machine.
 
