@@ -28,12 +28,6 @@ host machine)
 	- clean out Environment Variable
 
 ******************************
-**		NEXT	TO DO		**
-******************************
-
-	- go over subject
-
-******************************
 **		GENERAL				**
 ******************************
 	- set up virtual machine
