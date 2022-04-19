@@ -5,6 +5,8 @@ This school project is to use docker-compose to set up a small infrastructure co
 
 This project needs to be done in a Virtual Machine.
 
+![alt text](https://user-images.githubusercontent.com/73280726/164033851-973150a6-0f3d-46fe-ac0f-c964126788bd.png)
+
 
 ## Usage
 
